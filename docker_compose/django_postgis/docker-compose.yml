@@ -25,7 +25,8 @@ services:
     depends_on:
       - db
     working_dir: /home/Django
-    command: bash -c "python manage.py makemigrations &&
+    command: bash -c "python manage.py makemigrations geo_app &&
+                      python manage.py makemigrations &&
                       python manage.py migrate && 
                       python manage.py create_super_user &&
                       python manage.py test_db_connection &&
