@@ -1,9 +1,5 @@
 version: "3"
 
-volumes:
-  pg_data:
-  web_app:
-
 services:
   db:
     image: kartoza/postgis
@@ -31,3 +27,8 @@ services:
       - db
     working_dir: /home/web_app_base/django_base
     tty: true
+volumes:
+  pg_data:
+    external: True
+  web_app:
+    external: True
