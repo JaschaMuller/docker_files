@@ -6,6 +6,6 @@ services:
     ports:
       - "8888:8000"
     volumes:
-      - /c/django:/home
-    working_dir: /home/Django
+      - web_app:/home
+    working_dir: /home/web_app_base/django_base
     command: python manage.py runserver 0.0.0.0:8000
