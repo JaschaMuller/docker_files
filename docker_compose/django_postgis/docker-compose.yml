@@ -33,3 +33,4 @@ services:
                       python manage.py runserver 0.0.0.0:8000"
 volumes:
   pg_data:
+  web_app:
