@@ -1,0 +1,34 @@
+version: "3"
+services:
+  db:
+    image: kartoza/postgis
+    container_name: postgis
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=sjm
+      - POSTGRES_PASS=123
+      - POSTGRES_DBNAME=mygis
+      - ALLOW_IP_RANGE=0.0.0.0/0
+    volumes:
+      - pg_data:/var/lib/postgresql
+  web:
+    image: sjm89/my_django
+    container_name: django
+    restart: unless-stopped
+    ports:
+      - "8888:8000"
+    volumes:
+      - /c/django:/home
+    links:
+      - db
+    depends_on:
+      - db
+    working_dir: /home/Django
+    command: bash -c "python manage.py makemigrations &&
+                      python manage.py migrate && 
+                      python manage.py create_super_user &&
+                      python manage.py test_db_connection &&
+                      python manage.py runserver 0.0.0.0:8000"
+volumes:
+  pg_data:

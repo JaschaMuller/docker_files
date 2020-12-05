@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    image: sjm89/my_django
+    container_name: django
+    ports:
+      - "8888:8000"
+    volumes:
+      - /c/django:/home
+    working_dir: /home/Django
+    command: python manage.py runserver 0.0.0.0:8000
