@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: sjm89/my_django
+    image: django_image
     container_name: django
     ports:
       - "8888:8000"
