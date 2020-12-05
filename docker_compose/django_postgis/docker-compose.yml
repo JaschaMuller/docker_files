@@ -19,7 +19,7 @@ services:
     ports:
       - "8888:8000"
     volumes:
-      - web_app:/home/
+      - web_app:/home
     links:
       - db
     depends_on:
