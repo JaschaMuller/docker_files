@@ -12,7 +12,7 @@ RUN python -m pip install --upgrade pip && \
     pip install crick && \
     pip install rasterio && \
     pip install shapely && \
-    pip install gunicorn
-	pip install terracotta[recommended] && \
+    pip install gunicorn && \
+	pip install terracotta[recommended]
 
 EXPOSE 8000
