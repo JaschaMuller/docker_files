@@ -4,7 +4,7 @@ RUN apt-get update && \
 	apt-get install -y binutils libproj-dev gdal-bin libgdal-dev && \
     apt update && \
     apt upgrade && \
-    apt install nginx
+    apt install nginx -y
 
 ARG CPLUS_INCLUDE_PATH=/usr/include/gdal
 ARG C_INCLUDE_PATH=/usr/include/gdal
