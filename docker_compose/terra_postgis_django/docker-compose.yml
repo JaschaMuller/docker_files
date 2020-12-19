@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  db:
+    image: kartoza/postgis
+    container_name: postgis
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=sjm
+      - POSTGRES_PASS=123
+      - POSTGRES_DBNAME=gis
+      - ALLOW_IP_RANGE=0.0.0.0/0
+    volumes:
+      - pg_data:/var/lib/postgresql
+  
+  terra:
+    image: terracotta
+    container_name: terracotta
+    ports:
+      - 8000:8000
+    volumnes:
+      - terra:/home 
+  
+  web:
+    image: django_image
+    container_name: django
+    restart: unless-stopped
+    ports:
+      - "8888:8000"
+    volumes:
+      - web_app:/home
+    links:
+      - db
+      - terra
+    depends_on:
+      - db
+    working_dir: /home/web_app_base/django_base
+    tty: true
+volumes:
+  pg_data:
+    external: True
+  web_app:
+    external: True
+  terra:
+    external: True
