@@ -2,8 +2,8 @@ FROM python:3.6-buster
 
 RUN apt-get update && \
 	apt-get install -y binutils libproj-dev gdal-bin libgdal-dev && \
-    apt update && \
-    apt upgrade && \
+    apt update -y && \
+    apt upgrade -y && \
     apt install nginx -y
 
 ARG CPLUS_INCLUDE_PATH=/usr/include/gdal
