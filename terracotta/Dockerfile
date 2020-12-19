@@ -11,6 +11,7 @@ ARG C_INCLUDE_PATH=/usr/include/gdal
 
 RUN python -m pip install --upgrade pip && \
     pip install numpy && \
+    pip install cython && \
     pip install crick && \
     pip install rasterio && \
     pip install shapely && \
