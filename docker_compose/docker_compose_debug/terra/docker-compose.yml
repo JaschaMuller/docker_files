@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  terra:
+    image: terracotta
+    container_name: MyTerra
+    ports:
+      - 8080:80
+    volumes:
+      - terra:/home
+    working_dir: /home
+    command: bash -c "service nginx restart"
+    tty: true
+
+volumes:
+  terra:
+    external: True
