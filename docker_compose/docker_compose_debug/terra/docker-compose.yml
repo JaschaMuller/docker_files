@@ -10,7 +10,7 @@ services:
       - terra:/home
     working_dir: /home
     command: bash -c "service nginx restart &&
-                      nginx -g daemon off"
+                      service nginx start"
     tty: true
 
 volumes:
