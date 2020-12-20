@@ -17,7 +17,8 @@ RUN python -m pip install --upgrade pip && \
     pip install rasterio && \
     pip install shapely && \
     pip install gunicorn && \
-	pip install terracotta[recommended]
+	pip install terracotta[recommended] && \
+    pip install boto3
 
 EXPOSE 80
 
