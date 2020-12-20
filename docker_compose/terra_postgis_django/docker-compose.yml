@@ -16,11 +16,13 @@ services:
   
   terra:
     image: terracotta
-    container_name: terracotta
+    container_name: MyTerra
     ports:
-      - 8000:8000
+      - 8000:80
     volumes:
-      - terra:/home 
+      - terra:/home
+    working_dir: /home
+    command: bash -c "service nginx restart"
   
   web:
     image: django_image
@@ -36,6 +38,11 @@ services:
     depends_on:
       - db
     working_dir: /home/web_app_base/django_base
+    command: bash -c "python manage.py makemigrations geo_app &&
+                      python manage.py makemigrations &&
+                      python manage.py migrate &&
+                      python manage.py create_super_user &&
+                      python manage.py runserver 0.0.0.0:8000"
     tty: true
 volumes:
   pg_data:
