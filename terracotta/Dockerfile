@@ -19,4 +19,4 @@ RUN python -m pip install --upgrade pip && \
     pip install gunicorn && \
 	pip install terracotta[recommended]
 
-EXPOSE 8000
+EXPOSE 80
