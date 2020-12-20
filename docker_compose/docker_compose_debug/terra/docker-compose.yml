@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  terra2:
+  terra:
     image: terracotta
     container_name: MyTerra
     ports:
