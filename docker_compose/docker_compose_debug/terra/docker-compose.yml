@@ -9,8 +9,6 @@ services:
     volumes:
       - terra:/home
     working_dir: /home
-    command: bash -c "service nginx restart &&
-                      service nginx start"
     tty: true
 
 volumes:

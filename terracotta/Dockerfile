@@ -20,3 +20,5 @@ RUN python -m pip install --upgrade pip && \
 	pip install terracotta[recommended]
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
