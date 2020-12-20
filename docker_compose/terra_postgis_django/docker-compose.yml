@@ -18,7 +18,7 @@ services:
     image: terracotta
     container_name: MyTerra
     ports:
-      - 8000:80
+      - 8080:80
     volumes:
       - terra:/home
     working_dir: /home
