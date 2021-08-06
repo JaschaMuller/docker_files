@@ -23,6 +23,8 @@ RUN python -m pip install --upgrade pip && \
 	pip install terracotta[recommended] && \
     pip install boto3
 
+RUN export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
