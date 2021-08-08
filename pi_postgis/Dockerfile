@@ -14,5 +14,8 @@ RUN apt-get update \
       && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /docker-entrypoint-initdb.d
-COPY init.sql /docker-entrypoint-initdb.d/
-
+RUN mkdir -p /docker-entrypoint-initdb.d
+COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
+COPY ./update-postgis.sh /usr/local/bin
+RUN chmod +x /docker-entrypoint-initdb.d/postgis.sh && \
+      chmod +x /usr/local/bin/update-postgis.sh
