@@ -15,6 +15,4 @@ RUN apt-get update \
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 COPY init.sql /docker-entrypoint-initdb.d/
-RUN chmod +x /docker-entrypoint-initdb.d/postgis.sh && \
-      chmod +x /usr/local/bin/update-postgis.sh
 
