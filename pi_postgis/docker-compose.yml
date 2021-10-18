@@ -1,0 +1,26 @@
+version: "3"
+services:
+  db:
+    image: pi4_postgis
+    container_name: postgis
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=mainuser
+      - POSTGRES_PASS=eoedMaster123
+      - POSTGRES_DBNAME=gis
+      - ALLOW_IP_RANGE=0.0.0.0/0
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - /home/ubuntu/eoed/volumes/postgis:/var/lib/postgresql/data 
+    
+    restart: always
+
+    command: bash -c "psql -U postgres &&
+                      \c eoed_webapp &&
+                      CREATE EXTENSION postgis; && 
+                      CREATE EXTENSION postgis_topology;""
+
+
+
+      
