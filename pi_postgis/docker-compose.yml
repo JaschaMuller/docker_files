@@ -16,11 +16,6 @@ services:
     
     restart: always
 
-    command: bash -c "psql -U postgres &&
-                      \c eoed_webapp &&
-                      CREATE EXTENSION postgis; && 
-                      CREATE EXTENSION postgis_topology;""
-
 
 
       
